@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from 'react-redux';
 import './App.css';
+import Beers from './components/Beers';
+import store from "./redux/stores";
+import RandoomBeers from "./components/RandoomBeers";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    
+    <Provider store={store}>
+       <RandoomBeers/>
+      
+      <Beers/>
+     
+      <BrowserRouter>
+          <Switch>
+            <Route path="/beers" exact component={Beers} />
+          </Switch>
+      </BrowserRouter>
+    
+    </Provider>
+    
   );
 }
 
