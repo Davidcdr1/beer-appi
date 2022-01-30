@@ -1,12 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import {
-  randoomBeersLtABV,
-  randoomBeersGtABV,
-} from "../redux/actions/randoomBeersActions";
+import beersByName from "../redux/actions/beerByNameAction";
 import { addToCart } from "../redux/actions/cartActionCreator";
 import { addToDetail } from "../redux/actions/detailActionsCreator";
+import { useState } from "react";
 import { NavBar } from "./NavBar";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -21,27 +18,30 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import cart from "../img/shopping-cart.png";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Link } from "react-router-dom";
 
-export default function RandoomBeers() {
+function SearchBeers() {
   const dispatch = useDispatch();
-  const randoomBeers = useSelector((store) => store.randoomBeers);
+  const searchBeers = useSelector((store) => store.beers);
+  const [searchName, setSearchName] = useState("");
 
   function handleClick() {
     dispatch();
   }
 
-  function handleAddToCart(randoomBeer) {
-    console.log(randoomBeer);
-    dispatch(addToCart(randoomBeer));
+  function handleAddToCart(searchBeer) {
+    console.log(searchBeer);
+    dispatch(addToCart(searchBeer));
   }
 
-  function handleAddToDetail(randoomBeer) {
-    dispatch(addToDetail(randoomBeer));
+  function handleAddToDetail(searchBeer) {
+    dispatch(addToDetail(searchBeer));
   }
 
   const useStyles = makeStyles((theme) => ({
     root: {
       width: 360,
+      marginBottom: 10,
     },
     media: {
       width: 50,
@@ -73,55 +73,54 @@ export default function RandoomBeers() {
   return (
     <>
       <NavBar />
-      <div className="content-random">
+      <div className="content-search">
         <div>
-          <h1>Randoom Beer</h1>
+          <h1>Search Beer</h1>
         </div>
       </div>
-      <div className="cont-buttons">
+      <div className="input-search">
+        <input
+          type="text"
+          value={searchName}
+          onChange={(event) => {
+            setSearchName(event.target.value);
+          }}
+        />
         <button
-          className="btn btn-success m-2"
-          type="button"
-          onClick={() => dispatch(randoomBeersLtABV())}
+          className="btn btn-success "
+          disabled={!searchName}
+          onClick={() => dispatch(beersByName(searchName))}
         >
-          non-alcoholic
-        </button>
-        <button
-          className="btn btn-danger m-2"
-          type="button"
-          onClick={() => dispatch(randoomBeersGtABV())}
-        >
-          alcoholic
+          Load Beers
         </button>
       </div>
-
-      <div className="cont-beer-randoom">
-        {randoomBeers.map((randoomBeer) => (
+      <div className="card-search">
+        {searchBeers.map((searchBeer) => (
           <Card className={classes.root}>
-            <CardHeader title={randoomBeer.name} />
+            <CardHeader title={searchBeer.name} />
             <div className="cont-img-randoom">
               <Link to="/detail">
                 <IconButton
                   type="button"
-                  onClick={() => handleAddToDetail(randoomBeer)}
+                  onClick={() => handleAddToDetail(searchBeer)}
                 >
                   <CardMedia
                     className={classes.media}
-                    image={randoomBeer.image_url}
-                    title="empty image"
+                    image={searchBeer.image_url}
+                    title="Paella dish"
                   />
                 </IconButton>
               </Link>
             </div>
             <CardContent>
               <Typography variant="body2" color="textSecondary" component="p">
-                {randoomBeer.tagline}
+                {searchBeer.tagline}
               </Typography>
             </CardContent>
             <CardActions disableSpacing>
               <IconButton
                 aria-label="share"
-                onClick={() => handleAddToCart(randoomBeer)}
+                onClick={() => handleAddToCart(searchBeer)}
               >
                 <img src={cart} style={{ width: "1.5rem" }}></img>
               </IconButton>
@@ -138,7 +137,7 @@ export default function RandoomBeers() {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography paragraph>{randoomBeer.description}</Typography>
+                <Typography paragraph>{searchBeer.description}</Typography>
               </CardContent>
             </Collapse>
           </Card>
@@ -147,3 +146,5 @@ export default function RandoomBeers() {
     </>
   );
 }
+
+export default SearchBeers;

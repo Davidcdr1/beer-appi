@@ -1,4 +1,213 @@
-*{
+* {
   margin: 0;
   padding: 0;
+}
+body {
+  background-color: rgb(248, 198, 70);
+}
+.content-random {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.input-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.card-search {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.content {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.li {
+  margin-left: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgb(190, 163, 4);
+  width: 20rem;
+  list-style: none;
+}
+
+.content-img {
+  display: flex;
+  justify-content: center;
+}
+
+.titel-home h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.content-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiCollapse-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiCardHeader-content {
+  flex: 1 1 auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-homebeer {
+  margin-bottom: 3rem;
+}
+
+.cart-list h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.bg-light.w-50.mx-auto button {
+  justify-content: flex-end;
+}
+
+.cont-tagline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cont-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.cont-beer-randoom {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.cont-img-randoom {
+  display: flex;
+  justify-content: center;
+}
+
+.cart-titel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.cart-titel h1 {
+  font-size: 48px;
+  font-family: "Fredoka One", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+}
+
+.product-name {
+  color: #b5b6b8;
+  font-size: 14px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-name p {
+  font-family: "Secular One";
+  font-size: 18px;
+  color: #272f3d;
+}
+
+.product-name1 {
+  font-family: "Secular One";
+  color: #272f3d;
+  font-size: 18px;
+}
+
+.line {
+  border: solid 0.0001rem rgb(202, 202, 202);
+  width: 770px;
+  margin-bottom: 1rem;
+  margin-left: 0.7rem;
+}
+
+.total-title {
+  font-family: "Fredoka One", "Helvetica", "Arial", sans-serif;
+  font-size: 30px;
+  color: #272f3d;
+}
+
+.total-items {
+  font-family: "Fredoka One";
+  font-size: 25px;
+}
+
+.btn-checkout button {
+  font-size: 20px;
+}
+
+.empty {
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.cont-image-name {
+  display: flex;
+  align-items: center;
+}
+
+.cont-beer-detail {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.food {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.food-p {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
 }
