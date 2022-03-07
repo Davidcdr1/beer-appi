@@ -87,7 +87,7 @@ function BeerDetail() {
               aria-label="share"
               onClick={() => handleAddToCart(detailsItem)}
             >
-              <img src={cart} style={{ width: "1.5rem" }} alt="cart"></img>
+              <img src={cart} style={{ width: "1.4rem" }} alt="cart"></img>
             </IconButton>
             <IconButton
               className={clsx(classes.expand, {
